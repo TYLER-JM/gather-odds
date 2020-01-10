@@ -1,7 +1,18 @@
+const makeCall = async () => {
+  try {
+    const res = await $.ajax('/odds', {method: 'GET'});
+    console.log("the result of the call: ", res);
+  } catch (err) {
+    console.error(err);
+  }
+  
+};
+
 $(function() {
   $('#getOddsBtn').on('click', () => {
     console.log('button pushed');
-    $.ajax('/odds', {method: 'GET'});
+    makeCall();
+    // const res = await $.ajax('/odds', {method: 'GET'});
   });
 })
 

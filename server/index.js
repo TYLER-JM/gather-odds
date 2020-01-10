@@ -8,8 +8,12 @@ const api = require('../lib/api.js');
 
 app.use(express.static('public'));
 
-const oddsRoutes = require('./routes/oddsRoutes');
-app.use('/odds', oddsRoutes);
+const oddsRoutes = require('./routes/oddsRoutes.js');
+// app.use('/odds', oddsRoutes);
+
+// app.get('/odds', (req, res) => {
+//   console.log("watch out, Radioactive man!");
+// })
 
 
 app.listen(PORT, () => {
