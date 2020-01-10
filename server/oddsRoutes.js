@@ -12,4 +12,6 @@ module.exports = () => {
     // res.status(400);
     // res.send("hey");
   });
+
+  return router;
 }
