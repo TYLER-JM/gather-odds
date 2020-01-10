@@ -1,0 +1,15 @@
+{
+  "name": "gather-odds",
+  "version": "1.0.0",
+  "main": "server/index.js",
+  "author": "Tyler Martin",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1"
+  },
+  "scripts": {
+    "start": "node server/index.js"
+  }
+}
