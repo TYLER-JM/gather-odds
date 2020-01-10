@@ -11,6 +11,7 @@
     "nodemon": "^2.0.2"
   },
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "nm": "nodemon server/index.js"
   }
 }
