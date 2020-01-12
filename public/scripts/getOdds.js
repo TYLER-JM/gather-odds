@@ -1,12 +1,12 @@
-const makeCall = () => {
-  // const leagues = {
-  //   nfl: 2,
-  //   nba: 4,
-  //   nhl: 6
-  // };
+const makeCall = (league) => {
+  const leagues = {
+    nfl: 2,
+    nba: 4,
+    nhl: 6
+  };
   axios({
     "method":"GET",
-    "url":"https://therundown-therundown-v1.p.rapidapi.com/sports/6/events/2020-01-12",
+    "url":`https://therundown-therundown-v1.p.rapidapi.com/sports/${leagues[league]}/events/2020-01-12`,
     "headers":{
     "content-type":"application/octet-stream",
     "x-rapidapi-host":"therundown-therundown-v1.p.rapidapi.com",
@@ -40,8 +40,8 @@ $(function() {
     // let league = $('#league').val();
     // console.log(league);
     console.log('button pushed');
-    // makeCall($('#league').val());
-    makeCall();
+    makeCall($('#league').val());
+    // makeCall();
     // const res = await $.ajax('/odds', {method: 'GET'});
   });
 })
