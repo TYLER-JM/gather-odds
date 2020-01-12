@@ -8,8 +8,13 @@
 </head>
 <body>
   <h2>Your odds here</h2>
-  <!-- <button onclick="getOdds();">get your odds</button> -->
-  <button id="getOddsBtn">get your odds</button>
+    <select>
+      <option value="nhl">NHL</option>
+      <option value="nba">NBA</option>
+      <option value="nfl">NFL</option>
+    </select>
+    <button id="getOddsBtn">get your odds</button>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="scripts/getOdds.js"></script>
 </body>
