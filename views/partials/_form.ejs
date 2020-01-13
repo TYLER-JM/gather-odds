@@ -1,7 +1,10 @@
 <h2>Your odds here</h2>
-  <select id="league">
+<form action="/odds" method="POST">
+  <select id="league" name="league">
     <option value="nhl">NHL</option>
     <option value="nba">NBA</option>
     <option value="nfl">NFL</option>
   </select>
-<input id="getOddsBtn" type="button" value="get your odds"/>
+  <input type="text" name="email" />
+  <input id="getOddsBtn" type="submit" value="get your odds" />
+</form>
