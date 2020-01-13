@@ -7,7 +7,11 @@ const app = express();
 const api = require('../lib/api');
 
 app.use(express.static('public'));
+app.set('view engine', 'ejs');
 
+app.get('/', (req, res) => {
+  res.render('index');
+})
 app.get('/odds/:league', async (req, res) => {
   try {
     let result = await api(req.params.league);
