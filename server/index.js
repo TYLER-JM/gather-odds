@@ -15,7 +15,7 @@ app.get('/odds/:league', async (req, res) => {
   // console.log('the req: ', req);
   try {
     let result = await api(req.params.league);
-    console.log("after the api: ", result);
+    // console.log("after the api: ", result);
     res.send(JSON.stringify(result.data));
   } catch (err) {
     console.log("What's wrong???", err);
