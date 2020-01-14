@@ -4,5 +4,40 @@
 <body>
     <%- include('partials/_form') %>
   <h2>that's a hell of a table</h2>
+  <table>
+    <tr>
+      <th>Game</th>
+      <th>---</th>
+      <% for (book in sortedBooks) { %>
+        <th>
+          <%= sortedBooks[book] %>
+        </th>
+      <% } %>
+    </tr>
+    <% for event of events { %>
+      <tr>
+        <td>Visitor</td>
+        <td>
+          <%= event.teams[0].name %>
+        </td>
+        <% for (x in event.lines) { %>
+          <td>
+            <%= event.lines[x].moneyline_away %>
+          </td>
+        <% } %>
+      </tr>
+      <tr>
+        <td>Home</td>
+        <td>
+          <%= event.teams[1].name %>
+        </td>
+        <% for (x in event.lines) { %>
+          <td>
+            <%= event.lines[x].moneyline_home %>
+          </td>
+        <% } %>
+      </tr>
+    <% } %>
+  </table>
 </body>
 </html>
