@@ -24,14 +24,22 @@ app.get('/odds/:league', async (req, res) => {
     console.log("What's wrong???", err);
   }
 });
-app.get('/odds', (req, res) => {
-  res.render('table');
-});
+
 app.post('/odds', async (req, res) => {
-  console.log('the req DOT body', req.body);
   let result = await api(req.body.league);
-  res.render('table');
-  // res.send(JSON.stringify(result.data));
+  let books = await api();
+  let sortedBooks = {};
+  books.data.affiliates.forEach(book => {
+    sortedBooks[book.affiliate_id] = book.affiliate_name;
+  });
+  let templateVars = {
+    events: result.data.events,
+    // books: books.data.affiliates,
+    sortedBooks: sortedBooks
+  }
+  
+  res.render('table', templateVars);
+  // res.send(JSON.stringify(books.data));
 });
 
 app.listen(PORT, () => {
