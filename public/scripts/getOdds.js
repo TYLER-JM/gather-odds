@@ -9,11 +9,11 @@ const makeCall = async (league) => {
 };
 
 $(function() {
-  // $('#getOddsBtn').on('click', () => {
-  //   console.log('button pushed');
-  //   makeCall($('#league').val());
-  //   // makeCall();
-  // });
+  $('#getOddsBtn').on('click', () => {
+    console.log('button pushed');
+    makeCall($('#league').val());
+    // makeCall();
+  });
 })
 
 
