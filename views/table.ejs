@@ -14,17 +14,19 @@
         </th>
       <% } %>
     </tr>
-    <% for event of events { %>
+    <% for (event of events) { %>
       <tr>
         <td>Visitor</td>
         <td>
           <%= event.teams[0].name %>
         </td>
-        <% for (x in event.lines) { %>
+        <%# for (x in event.lines) { %>
+        <%# for (x in event.line_periods) { %>
           <td>
-            <%= event.lines[x].moneyline_away %>
+            HEY
+            <%# event.lines[x].moneyline_away %>
           </td>
-        <% } %>
+        <%# } %>
       </tr>
       <tr>
         <td>Home</td>
