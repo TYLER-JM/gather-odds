@@ -40,6 +40,7 @@ app.post('/odds', async (req, res) => {
   
   res.render('table', templateVars);
   // res.send(JSON.stringify(books.data));
+  // res.send(JSON.stringify(templateVars));
 });
 
 app.listen(PORT, () => {

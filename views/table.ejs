@@ -4,6 +4,8 @@
 <body>
     <%- include('partials/_form') %>
   <h2>that's a hell of a table</h2>
+  <%# console.log("the events: ", events) %>
+  <%# console.log("the Books: ", sortedBooks) %>
   <table>
     <tr>
       <th>Game</th>
@@ -20,22 +22,22 @@
         <td>
           <%= event.teams[0].name %>
         </td>
-        <%# for (x in event.lines) { %>
-        <%# for (x in event.line_periods) { %>
+        <% for (let x in event.lines) { %>
           <td>
             HEY
-            <%# event.lines[x].moneyline_away %>
+            <%= event.lines[x].moneyline.moneyline_away %>
           </td>
-        <%# } %>
+        <% } %>
       </tr>
       <tr>
         <td>Home</td>
         <td>
           <%= event.teams[1].name %>
         </td>
-        <% for (x in event.lines) { %>
+        <% for (let x in event.lines) { %>
+          <%= console.log("looking at one lines object: ", event.lines[x]) %>
           <td>
-            <%= event.lines[x].moneyline_home %>
+            <%= event.lines[x].moneyline.moneyline_home %>
           </td>
         <% } %>
       </tr>
