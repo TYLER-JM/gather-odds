@@ -16,32 +16,36 @@
         </th>
       <% } %>
     </tr>
-    <% for (event of events) { %>
-      <tr>
-        <td>Visitor</td>
-        <td>
-          <%= event.teams[0].name %>
-        </td>
-        <% for (let x in event.lines) { %>
+
+
+      <% for (event of events) { %>
+        <tr>
+          <td>Visitor</td>
           <td>
-            HEY
-            <%= event.lines[x].moneyline.moneyline_away %>
+            <%= event.teams[0].name %>
           </td>
-        <% } %>
-      </tr>
-      <tr>
-        <td>Home</td>
-        <td>
-          <%= event.teams[1].name %>
-        </td>
-        <% for (let x in event.lines) { %>
-          <%= console.log("looking at one lines object: ", event.lines[x]) %>
+          <% for (let x in event.lines) { %>
+            <td>
+              <%= event.lines[x].moneyline.moneyline_away %>
+            </td>
+          <% } %>
+        </tr>
+        <tr>
+          <td>Home</td>
           <td>
-            <%= event.lines[x].moneyline.moneyline_home %>
+            <%= event.teams[1].name %>
           </td>
-        <% } %>
-      </tr>
+          <% for (let x in event.lines) { %>
+            <%= console.log("looking at one lines object: ", event.lines[x]) %>
+            <td>
+              <%= event.lines[x].moneyline.moneyline_home %>
+            </td>
+          <% } %>
+        </tr>
+
     <% } %>
+
+
   </table>
 </body>
 </html>
