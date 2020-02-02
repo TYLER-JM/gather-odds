@@ -13,16 +13,13 @@ app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
   res.render('index');
-})
-app.get('/odds/:league', async (req, res) => {
-  try {
-    // let result = await api(req.params.league);
-    // console.log("after the api: ", result);
-    res.render('table');
-    // res.send(JSON.stringify(result.data));
-  } catch (err) {
-    console.log("What's wrong???", err);
+});
+
+app.get('/test', (req, res) => {
+  let templateVars = {
+    event: 'ottawa'
   }
+  res.render('test', templateVars);
 });
 
 app.post('/odds', async (req, res) => {
@@ -38,9 +35,9 @@ app.post('/odds', async (req, res) => {
     sortedBooks: sortedBooks
   }
   
-  res.render('table', templateVars);
+  // res.render('table', templateVars);
   // res.send(JSON.stringify(books.data));
-  // res.send(JSON.stringify(templateVars));
+  res.send(JSON.stringify(templateVars));
 });
 
 app.listen(PORT, () => {
