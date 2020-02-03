@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const api = require('../lib/api');
+// const sampleData = require('../lib/Private/sample');
+
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -34,10 +36,12 @@ app.post('/odds', async (req, res) => {
     // books: books.data.affiliates,
     sortedBooks: sortedBooks
   }
+
+  // let templateVars = sampleData;
   
-  // res.render('table', templateVars);
+  res.render('table', templateVars);
   // res.send(JSON.stringify(books.data));
-  res.send(JSON.stringify(templateVars));
+  // res.send(JSON.stringify(templateVars));
 });
 
 app.listen(PORT, () => {
