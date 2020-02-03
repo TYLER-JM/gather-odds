@@ -6,18 +6,18 @@
   <h2>that's a hell of a table</h2>
   <%# console.log("the events: ", events) %>
   <%# console.log("the Books: ", sortedBooks) %>
-  <table>
-    <tr>
-      <th>Game</th>
-      <th>---</th>
-      <% for (book in sortedBooks) { %>
-        <th>
-          <%= sortedBooks[book] %>
-        </th>
-      <% } %>
-    </tr>
-
-
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col" colspan="2">Game</th>
+        <% for (book in sortedBooks) { %>
+          <th scope="col">
+            <%= sortedBooks[book] %>
+          </th>
+        <% } %>
+      </tr>
+    </thead>
+    <tbody>
       <% for (event of events) { %>
         <tr>
           <td>Visitor</td>
@@ -30,20 +30,21 @@
             </td>
           <% } %>
         </tr>
-        <tr>
+        <tr class="thick-border">
           <td>Home</td>
           <td>
             <%= event.teams[1].name %>
           </td>
           <% for (let x in event.lines) { %>
-            <%= console.log("looking at one lines object: ", event.lines[x]) %>
+            <%# console.log("looking at one lines object: ", event.lines[x]) %>
             <td>
               <%= event.lines[x].moneyline.moneyline_home %>
             </td>
           <% } %>
         </tr>
+      <% } %>
+    </tbody>
 
-    <% } %>
 
 
   </table>
