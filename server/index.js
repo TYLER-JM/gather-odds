@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const api = require('../lib/api');
-// const sampleData = require('../lib/Private/sample');
+const sampleData = require('../lib/Private/sample');
 
 
 app.use(express.static('public'));
@@ -25,19 +25,19 @@ app.get('/test', (req, res) => {
 });
 
 app.post('/odds', async (req, res) => {
-  let result = await api(req.body.league);
-  let books = await api();
-  let sortedBooks = {};
-  books.data.affiliates.forEach(book => {
-    sortedBooks[book.affiliate_id] = book.affiliate_name;
-  });
-  let templateVars = {
-    events: result.data.events,
-    // books: books.data.affiliates,
-    sortedBooks: sortedBooks
-  }
+  // let result = await api(req.body.league);
+  // let books = await api();
+  // let sortedBooks = {};
+  // books.data.affiliates.forEach(book => {
+  //   sortedBooks[book.affiliate_id] = book.affiliate_name;
+  // });
+  // let templateVars = {
+  //   events: result.data.events,
+  //   // books: books.data.affiliates,
+  //   sortedBooks: sortedBooks
+  // }
 
-  // let templateVars = sampleData;
+  let templateVars = sampleData;
   
   res.render('table', templateVars);
   // res.send(JSON.stringify(books.data));
