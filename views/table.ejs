@@ -16,7 +16,7 @@
           </select>
         </th>
         <% for (book in sortedBooks) { %>
-          <th scope="col">
+          <th scope="col" id="col-<%= book %>">
             <%= sortedBooks[book] %>
           </th>
         <% } %>
@@ -31,7 +31,7 @@
           </td>
           <% for (let x in event.lines) { %>
             <td class="moneyline">
-              <%= event.lines[x].moneyline.moneyline_away %>
+              <%= event.lines[x].moneyline ? event.lines[x].moneyline.moneyline_away : '-' %>
             </td>
           <% } %>
         </tr>
@@ -43,7 +43,7 @@
           <% for (let x in event.lines) { %>
             <%# console.log("looking at one lines object: ", event.lines[x]) %>
             <td class="moneyline">
-              <%= event.lines[x].moneyline.moneyline_home %>
+              <%= event.lines[x].moneyline ? event.lines[x].moneyline.moneyline_home : '-' %>
             </td>
           <% } %>
         </tr>
