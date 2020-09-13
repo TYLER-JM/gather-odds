@@ -1,3 +1,5 @@
+//DEPRECATED
+
 const makeCall = async (league) => {
   try {
     //res will be the return value of the api function I write
