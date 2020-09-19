@@ -1,0 +1,50 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Total</th>
+      <th scope="col">
+        <select id="format" name="format" onchange="convertOdds(event);">
+          <option value="american">American</option>
+          <option value="decimal">Decimal</option>
+        </select>
+      </th>
+      <% for (book in sortedBooks) { %>
+        <th scope="col" id="col-<%= book %>">
+          <%= sortedBooks[book] %>
+        </th>
+      <% } %>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (event of events) { %>
+
+      <tr>
+        <td colspan="2"><%= event.teams_normalized[0].abbreviation %>&nbsp;@&nbsp;<%= event.teams_normalized[1].abbreviation %></td>
+        <% for ( let x in event.lines) { %> 
+          <td class="total">
+            <%= event.lines[x].total ? event.lines[x].total.total_over : '-' %>
+          </td>
+        <% } %> 
+      </tr>
+
+      <tr>
+        <td colspan="2">Over</td>
+        <% for (let x in event.lines) { %>
+          <td class="moneyline">
+            <%= event.lines[x].total ? event.lines[x].total.total_over_money : '-' %>
+          </td>
+        <% } %>
+      </tr>
+
+      <tr class="thick-border">
+        <td colspan="2">Under</td>
+        <% for (let x in event.lines) { %>
+          <td class="moneyline">
+            <%= event.lines[x].total ? event.lines[x].total.total_under_money : '-' %>
+          </td>
+        <% } %>
+      </tr>
+
+    <% } %>
+  </tbody>
+</table>
