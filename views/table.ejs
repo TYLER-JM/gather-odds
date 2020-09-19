@@ -2,57 +2,9 @@
 <html lang="en">
   <%- include('partials/_header') %>
 <body>
-    <%- include('partials/_form') %>
-  <%# console.log("the events: ", events) %>
-  <%# console.log("the Books: ", sortedBooks) %>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th scope="col">Game</th>
-        <th scope="col">
-          <select id="format" name="format" onchange="convertOdds(event);">
-            <option value="american">American</option>
-            <option value="decimal">Decimal</option>
-          </select>
-        </th>
-        <% for (book in sortedBooks) { %>
-          <th scope="col" id="col-<%= book %>">
-            <%= sortedBooks[book] %>
-          </th>
-        <% } %>
-      </tr>
-    </thead>
-    <tbody>
-      <% for (event of events) { %>
-        <tr>
-          <td>Visitor</td>
-          <td>
-            <%= event.teams[0].name %>
-          </td>
-          <% for (let x in event.lines) { %>
-            <td class="moneyline">
-              <%= event.lines[x].moneyline ? event.lines[x].moneyline.moneyline_away : '-' %>
-            </td>
-          <% } %>
-        </tr>
-        <tr class="thick-border">
-          <td>Home</td>
-          <td>
-            <%= event.teams[1].name %>
-          </td>
-          <% for (let x in event.lines) { %>
-            <%# console.log("looking at one lines object: ", event.lines[x]) %>
-            <td class="moneyline">
-              <%= event.lines[x].moneyline ? event.lines[x].moneyline.moneyline_home : '-' %>
-            </td>
-          <% } %>
-        </tr>
-      <% } %>
-    </tbody>
-
-
-
-  </table>
+  <%- include('partials/_form') %>
+  <%# include('partials/_moneyline') %> 
+  <%- include(`partials/_${view}`) %> 
   <%- include('partials/_scripts') %> 
 </body>
 </html>
