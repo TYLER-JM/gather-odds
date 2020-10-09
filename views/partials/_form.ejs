@@ -1,9 +1,18 @@
 <h2>Your odds here</h2>
-<form action="/odds" method="POST">
-  <select id="league" name="league">
-    <option value="nhl">NHL</option>
-    <option value="nba">NBA</option>
-    <option value="nfl">NFL</option>
-  </select>
-  <input id="getOddsBtn" type="submit" value="get your odds" />
-</form>
+<!-- <form action="/odds" method="POST"> -->
+  <section>
+    <select id="league" name="league" onchange="selectLeague();">
+      <option value="nhl">NHL</option>
+      <option value="nba">NBA</option>
+      <option value="nfl">NFL</option>
+      <option value="mbl">MLB</option>
+    </select>
+    <select id="line" name="league" onchange="selectLeague();">
+      <option value="moneyline">Money Line</option>
+      <option value="total">Total</option>
+    </select>
+    <a href="#" id="getOddsLink">
+      <input type="button" value="get your odds" />
+    </a>
+  </section>
+<!-- </form> -->
